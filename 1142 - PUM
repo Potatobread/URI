@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(){
+	int n,v,aux=1;
+	
+	scanf("%d", &n);
+	while(n != 0){
+		for(v=0;v < 4;v++){
+			if(v == 3){
+				printf("PUM\n");
+			}
+			else{
+				printf("%d ", aux);
+			}
+			aux++;
+		}
+		n--;
+	}
+   	
+	return 0;
+}
