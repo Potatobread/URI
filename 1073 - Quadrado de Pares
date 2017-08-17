@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(){
+	int n,aux=1,resul;
+	
+	scanf("%d", &n);
+	while(aux <= n){
+		if(aux % 2 == 0){
+			resul = aux * aux;
+			printf("%d^2 = %d\n", aux,resul);
+		}	
+		aux++;
+	}
+   	
+	return 0;
+}
