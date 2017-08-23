@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(){
+	int valor,cont=0,n=0;
+	
+	while(n != 5){
+		scanf("%d", &valor);
+		if(valor % 2 == 0){	cont++;	}
+		n++;	
+	}
+	printf("%d valores pares\n", cont);
+	
+	return 0;
+}
