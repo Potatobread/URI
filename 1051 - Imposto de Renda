@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(){
+	float salario,valor,imposto,aux;
+	
+	scanf("%f", &salario);
+	if(salario <= 2000.00){
+		printf("Isento\n");
+	}
+	else if(salario >= 2000.01 && salario <= 3000.00){
+		imposto = salario - 2000;
+		valor = imposto * 0.08;
+		printf("R$ %.2f\n", valor);
+	}
+	else if(salario >= 3000.01 && salario <= 4500.00){
+		imposto = salario - 2000;
+		if(imposto > 1000){
+			aux = imposto - 1000;
+			imposto = imposto - aux;
+		}
+		valor = imposto * 0.08;
+		aux = aux * 0.18;
+		valor = valor + aux;
+		printf("R$ %.2f\n", valor);
+	}
+	else if(salario > 4500.00){
+		imposto = salario - 4500;
+		valor = (imposto * 0.28) + (1500 * 0.18) + (1000 * 0.08);
+		printf("R$ %.2f\n", valor);
+	}
+	
+	return 0;
+}
