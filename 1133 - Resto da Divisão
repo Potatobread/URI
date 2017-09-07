@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(){
+	int x,y,div;
+	
+	scanf("%d%d",&x,&y);
+	if(x > y){
+		while(y < x){
+			y++;
+			div = y % 5;
+			if(div == 2 || div == 3)
+				printf("%d\n",y);
+		}
+	}
+	else{
+		while(x < y){
+			x++;
+			div = x % 5;			
+			if(div == 2 || div == 3)
+				printf("%d\n",x);			
+		}
+	}
+	
+	return 0;
+}
