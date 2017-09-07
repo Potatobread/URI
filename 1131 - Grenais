@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(){
+	int resp=0,grem,inter,total=0,vit_inter=0,vit_grem=0,emp=0;
+	
+	while(resp != 2){
+		scanf("%d%d", &inter,&grem);
+		if(grem > inter)
+			vit_grem++;
+		else if(grem < inter)
+			vit_inter++;
+		else if(grem == inter)
+			emp++;
+		total++;
+		printf("Novo grenal (1-sim 2-nao)\n");
+		scanf(" %d", &resp);
+	}
+	printf("%d grenais\n", total);
+	printf("Inter:%d\n",vit_inter);
+	printf("Gremio:%d\n",vit_grem);
+	printf("Empates:%d\n",emp);
+	if(vit_grem > vit_inter)
+		printf("Gremio venceu mais\n");
+	else if(vit_grem < vit_inter)
+		printf("Inter venceu mais\n");
+	else if(vit_grem == vit_inter)
+		printf("Nao houve vencedor\n");
+	
+	return 0;
+}
