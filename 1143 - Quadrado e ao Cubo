@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(){
+	int n,a,b,c;
+	
+	scanf("%d", &n);
+	for(a=1;a<=n;a++){
+		b = a*a;
+		c = a*a*a;
+		printf("%d %d %d\n",a,b,c);
+	}
+	
+	return 0;
+}
