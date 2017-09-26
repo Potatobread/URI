@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(){
+	int x,z=0,cont=0,soma=0;
+	
+	scanf("%d", &x);
+	while(z < x){
+		scanf("%d", &z);
+		if(x <= z){
+			while(soma <= z){
+				soma += x;
+				x++;
+				cont++;
+			}
+		}	
+	}
+	
+	printf("%d\n", cont);
+	
+	return 0;
+}
