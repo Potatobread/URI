@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(){
+	double s=1,x,y;
+	
+	for(x=3,y=2;x <= 39;x+=2,y*=2)
+		s += x/y;
+	
+	printf("%.2lf\n", s);
+	
+	return 0;
+}
