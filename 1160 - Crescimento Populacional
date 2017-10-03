@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(){
+	int t,pa=0,pb=0,cresc_A,cresc_B,anos;
+	float g1,g2;
+	
+	scanf("%d", &t);
+	while(t != 0){
+		scanf("%d%d%f%f", &pa,&pb,&g1,&g2);
+		anos = 0;
+		while(pa <= pb){
+			cresc_A = (pa*g1)/100;
+			cresc_B = (pb*g2)/100;
+			pa += cresc_A;
+			pb += cresc_B;
+			anos++;
+			if(anos > 100)
+				break;
+		}
+		if(anos > 100)
+			printf("Mais de 1 seculo.\n");
+		else
+			printf("%d anos.\n", anos);
+		t--;
+	}
+	
+	return 0;
+}
