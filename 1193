@@ -1,0 +1,176 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct{
+	int bin;
+	int dec;
+	char hex[15];	
+}tBase;
+
+typedef struct{
+	char x[15];
+	char y[3];
+}tEntrada;
+
+int transformaBinario(int decimal){
+	long int resto = 0,multiplica_dez = 1,binario = 0,aux;
+	
+	while(decimal >= 1){
+		resto = decimal % 2;
+		aux = multiplica_dez * resto;
+		binario += aux;
+		multiplica_dez *= 10;
+		decimal = decimal / 2;
+	}
+	
+	return binario; 
+}
+
+int transformaDecimal(int valor){
+	int decimal=0,i,multiplica,quant=0,divide_dez = 10,modulo,num;
+	
+	num = valor;
+	while(num != 0){
+		quant++;
+        num /= 10;
+	}
+	for(i=0;i<quant;i++){
+		multiplica = pow(2,i);
+		modulo = (valor % divide_dez)/(divide_dez/10);
+		divide_dez *= 10;
+		decimal += modulo * multiplica;
+	}
+	
+	return decimal;
+}
+
+int decimalHexadecimal(char *valor){
+	int i=0,j,multiplica,decimal=0,quant,aux;
+	
+	quant = strlen(valor);
+	for(i=0,j=quant-1;i < quant;i++,j--){
+		switch(valor[j]){
+			case 'A':
+				multiplica = pow(16,i);
+				aux = 10;
+				decimal += aux * multiplica;
+				break;
+			case 'B':
+				multiplica = pow(16,i);
+				aux = 11;
+				decimal += aux * multiplica;
+				break;
+			case 'C':
+				multiplica = pow(16,i);
+				aux = 12;
+				decimal += aux * multiplica;
+				break;
+			case 'D':
+				multiplica = pow(16,i);
+				aux = 13;
+				decimal += aux * multiplica;
+				break;
+			case 'E':
+				multiplica = pow(16,i);
+				aux = 14;
+				decimal += aux * multiplica;
+				break;
+			case 'F':
+				multiplica = pow(16,i);
+				aux = 15;
+				decimal += aux * multiplica;
+				break;
+			default:
+				multiplica = pow(16,i);
+				aux = atoi(valor[j]);
+				decimal += aux * multiplica;
+				break;
+		}
+	}
+	
+	return decimal;
+}
+
+int transformaHexadecimal(int decimal, char *hexa){
+	int i=0,j=0,divisor,verificador=0,resto;
+	
+	while(decimal > verificador){
+		verificador = pow(16,i);
+		i++;
+	}
+	i -= 2;
+	
+	while(i >= 0){
+		divisor = pow(16,i);
+		resto = decimal / divisor;
+		if(resto >= 10){
+			switch(resto){
+				case 10:
+					hexa[j] = 'A';
+					break;
+				case 11:
+					hexa[j] = 'B';
+					break;
+				case 12:
+					hexa[j] = 'C';
+					break;
+				case 13:
+					hexa[j] = 'D';
+					break;
+				case 14:
+					hexa[j] = 'E';
+					break;
+				case 15:
+					hexa[j] = 'F';
+					break;
+				default:
+					break;
+			}
+		}
+		else
+			hexa[j] = resto + '0';
+		divisor *= resto;
+		decimal -= divisor;
+		i--;
+		j++; 
+	}
+	
+	return j;
+}
+
+
+
+
+
+int main(){
+	int n,cont=0,numero,j,a;
+	tBase base;
+	tEntrada valor;
+	
+	scanf("%d", &n);
+	while(n != 0){
+		scanf("%s%s", valor.x,valor.y);
+		if(!(a = strcmp(valor.y,'bin'))){
+			
+		}
+		
+		switch(valor.y){
+			case 'bin':
+				numero = atoi(valor.x);
+				base.dec = transformaDecimal(numero);
+				j = transformaHexadecimal(base.dec,base.hex);
+				printf("Hexadecimal: ");
+				for(i=0;i<j;i++)
+					printf("%c", hexadecimal[i]);
+				printf("\n");
+				break;
+			default:
+				break;
+		}
+		n--;
+	}
+	
+	return 0;
+}
