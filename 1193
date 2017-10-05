@@ -145,16 +145,15 @@ int transformaHexadecimal(int decimal, char *hexa){
 
 
 int main(){
-	int n,cont=0,numero,j,a;
+	int n,cont=0,numero,j,a,verif;
 	tBase base;
 	tEntrada valor;
 	
 	scanf("%d", &n);
 	while(n != 0){
 		scanf("%s%s", valor.x,valor.y);
-		if(!(a = strcmp(valor.y,'bin'))){
+		if(a = strcmp(valor.y,'bin'))
 			
-		}
 		
 		switch(valor.y){
 			case 'bin':
