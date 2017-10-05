@@ -48,6 +48,7 @@ int transformaDecimal(int valor){
 
 int decimalHexadecimal(char *valor){
 	int i=0,j,multiplica,decimal=0,quant,aux;
+	char auxiliar;
 	
 	quant = strlen(valor);
 	for(i=0,j=quant-1;i < quant;i++,j--){
@@ -142,28 +143,45 @@ int transformaHexadecimal(int decimal, char *hexa){
 
 
 
-
-
 int main(){
-	int n,cont=0,numero,j,a,verif;
+	int n,cont=1,numero,i,j;
 	tBase base;
 	tEntrada valor;
 	
 	scanf("%d", &n);
 	while(n != 0){
-		scanf("%s%s", valor.x,valor.y);
-		if(a = strcmp(valor.y,'bin'))
-			
+		scanf("%s %s", valor.x,valor.y);
 		
-		switch(valor.y){
-			case 'bin':
+		switch(valor.y[0]){
+			case 'b':
 				numero = atoi(valor.x);
 				base.dec = transformaDecimal(numero);
 				j = transformaHexadecimal(base.dec,base.hex);
-				printf("Hexadecimal: ");
+				printf("Case %d:\n", cont);
+				printf("%d dec\n", base.dec);
 				for(i=0;i<j;i++)
-					printf("%c", hexadecimal[i]);
-				printf("\n");
+					printf("%c", base.hex[i]);
+				printf(" hex\n\n");
+				cont++;
+				break;
+			case 'd':
+				numero = atoi(valor.x);
+				base.bin = transformaBinario(numero);
+				printf("Case %d:\n", cont);
+				j = transformaHexadecimal(base.dec,base.hex);
+				for(i=0;i<j;i++)
+					printf("%c", base.hex[i]);
+				printf(" hex\n");
+				printf("%d bin\n\n", base.bin);				
+				cont++;
+				break;
+			case 'h':
+				base.dec = decimalHexadecimal(valor.x);
+				base.bin = transformaBinario(base.dec);
+				printf("Case %d:\n", cont);
+				printf("%d dec\n", base.dec);
+				printf("%d bin\n\n", base.bin);
+				cont++;
 				break;
 			default:
 				break;
