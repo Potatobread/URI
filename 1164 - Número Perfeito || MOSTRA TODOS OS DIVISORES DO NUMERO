@@ -1,19 +1,16 @@
 #include <stdio.h>
 
 int main(){
-	int n,x,divisores,i,aux;
+	int n,x,divisores,i;
 	
 	scanf("%d", &n);
 	while(n != 0){
 		scanf("%d", &x);
 		divisores = 0;
-		for(i=1;i != x;i++){
-			aux = x;
-			if(aux % i == 0){
+		for(i=1;i!=x;i++){
+			if(x % i == 0)
 				divisores += i;
-				aux /= i;
-			}	
-		}
+		}	
 		if(divisores == x)
 			printf("%d eh perfeito\n", x);
 		else
