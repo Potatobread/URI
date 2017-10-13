@@ -46,9 +46,33 @@ int transformaDecimal(int valor){
 	return decimal;
 }
 
+int transformaNumero(char c){
+	switch(c){
+		case '1':
+			return 1;
+		case '2':
+			return 2;
+		case '3':
+			return 3;
+		case '4':
+			return 4;
+		case '5':
+			return 5;
+		case '6':
+			return 6;
+		case '7':
+			return 7;
+		case '8':
+			return 8;
+		case '9':
+			return 9;
+		default:
+			return;
+	}
+}
+
 int decimalHexadecimal(char *valor){
 	int i=0,j,multiplica,decimal=0,quant,aux;
-	char auxiliar;
 	
 	quant = strlen(valor);
 	for(i=0,j=quant-1;i < quant;i++,j--){
@@ -85,7 +109,7 @@ int decimalHexadecimal(char *valor){
 				break;
 			default:
 				multiplica = pow(16,i);
-				aux = atoi(valor[j]);
+				aux = transformaNumero(valor[j]);
 				decimal += aux * multiplica;
 				break;
 		}
