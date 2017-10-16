@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(){
+	int n[20],y,aux,i,j,k;
+	
+	for(i=0;i<20;i++){
+		scanf("%d", &y);
+		n[i] = y;
+	}
+	
+	j = 0;
+	k = i/2;
+	while(j < k){
+		aux = n[j];  
+		n[j] = n[i-1];
+ 		n[i-1] = aux;
+		j++;
+		i--; 
+	}
+	
+	for(i=0;i<20;i++)
+		printf("N[%d] = %d\n", i,n[i]);
+	
+	return 0;
+}
