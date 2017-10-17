@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(){
+	double a,b,porc,aux;
+	
+	scanf("%lf%lf", &a,&b);
+	aux = b - a;
+	porc = (aux*100)/a;
+	
+	printf("%.2lf%%\n", porc);
+	
+	return 0;
+}
