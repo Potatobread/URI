@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main(){
+	int par[5],impar[5];
+	int i=0,j=0,k,n=15,x;
+	
+	while(n != 0){
+		scanf("%d", &x);
+		if(x % 2 == 0){
+			if(i <= 4){
+				par[i] = x;
+				i++;
+			}	
+			else{
+				for(i=0;i<5;i++)
+					printf("par[%d] = %d\n", i,par[i]);
+				i = 0;
+				par[i] = x;
+				i++;
+			}	
+		}
+		else{
+			if(j <= 4){
+				impar[j] = x;
+				j++;
+			}	
+			else{
+				for(j=0;j<5;j++)
+					printf("impar[%d] = %d\n", j,impar[j]);
+				j = 0;
+				impar[j] = x;
+				j++;
+			}		 			
+		}
+		n--;
+	}
+	for(k=0;k<j;k++)
+		printf("impar[%d] = %d\n", k,impar[k]);
+	for(k=0;k<i;k++)
+		printf("par[%d] = %d\n", k,par[k]);
+	
+	return 0;
+}
